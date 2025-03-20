@@ -38,6 +38,14 @@ def prestej_piksle_z_barvo_koze(slika, barva_koze) -> int:
 def doloci_barvo_koze(slika, levo_zgoraj, desno_spodaj) -> tuple:
     '''Izračuna spodnje in zgornje meje barve kože na podlagi izbranega območja.'''
 
+    # Izrežemo območje iz slike
+    koza_obmocje = slika[levo_zgoraj[1]:desno_spodaj[1], levo_zgoraj[0]:desno_spodaj[0]]
+
+    # Pretvorimo v HSV prostor
+    hsv = cv.cvtColor(koza_obmocje, cv.COLOR_BGR2HSV)
+
+    # Prilagodite te vrednosti na podlagi vaše slike
+    # Spodnja in zgornja meja za barvo kože v HSV prostoru
     spodnja_meja = np.array([0, 20, 70])  # Prilagodite te vrednosti
     zgornja_meja = np.array([20, 150, 255])  # Prilagodite te vrednosti
 
