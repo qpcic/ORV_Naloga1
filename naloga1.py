@@ -12,6 +12,21 @@ def obdelaj_sliko_s_skatlami(slika, sirina_skatle, visina_skatle, barva_koze) ->
     # Velikost slike
     visina, sirina, _ = slika.shape
 
+    # Gremo čez celotno sliko z okenskimi škatlami
+    for y in range(0, visina - visina_skatle, visina_skatle):
+        vrstica = []
+        for x in range(0, sirina - sirina_skatle, sirina_skatle):
+            # Izrežemo škatlo iz slike
+            skatl = slika[y:y + visina_skatle, x:x + sirina_skatle]
+
+            # Preštejemo število pikslov kože v škatli
+            stevilo_pikslov = prestej_piksle_z_barvo_koze(skatl, barva_koze)
+
+            # Dodamo rezultat v seznam
+            vrstica.append(stevilo_pikslov)
+
+        seznam_skatel.append(vrstica)
+
     return seznam_skatel
 
 
