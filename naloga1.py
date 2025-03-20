@@ -2,8 +2,8 @@ import cv2 as cv
 import numpy as np
 
 def zmanjsaj_sliko(slika, sirina, visina):
-    '''Pomanjša sliko na določeno velikost.'''
-    return cv.resize(slika, (sirina, visina))
+
+    pass
 
 
 
