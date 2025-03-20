@@ -2,8 +2,7 @@ import cv2 as cv
 import numpy as np
 
 def zmanjsaj_sliko(slika, sirina, visina):
-
-    pass
+    return cv.resize(slika, (sirina, visina))
 
 
 
