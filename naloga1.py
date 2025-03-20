@@ -2,10 +2,8 @@ import cv2 as cv
 import numpy as np
 
 def zmanjsaj_sliko(slika, sirina, visina):
-    '''Pomanjša sliko na določeno velikost.'''
-    return cv.resize(slika, (sirina, visina))
 
-
+   pass
 
 def obdelaj_sliko_s_skatlami(slika, sirina_skatle, visina_skatle, barva_koze) -> list:
     '''Obdelamo sliko in preštejemo število pikslov kože v vsaki škatli.'''
@@ -22,6 +20,8 @@ def doloci_barvo_koze(slika, levo_zgoraj, desno_spodaj) -> tuple:
 
 def main():
     pass
+
+
 if __name__ == '__main__':
     main()
 
