@@ -43,7 +43,12 @@ def prestej_piksle_z_barvo_koze(slika, barva_koze) -> int:
     '''Prešteje število pikslov z barvo kože v podsliki.'''
     spodnja_meja, zgornja_meja = barva_koze
 
-    return barva_koze
+    # Ustvarimo masko za barvo kože
+    maska = cv.inRange(slika, spodnja_meja, zgornja_meja)
+
+    # Preštejemo število pikslov, ki ustrezajo maski
+    stevilo_pikslov = np.sum(maska == 255)
+    return stevilo_pikslov
 
 
 def main():
