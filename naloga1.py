@@ -2,12 +2,17 @@ import cv2 as cv
 import numpy as np
 
 def zmanjsaj_sliko(slika, sirina, visina):
-    ''' sss'''
     pass
     return cv.resize(slika, (sirina, visina))
 
 def obdelaj_sliko_s_skatlami(slika, sirina_skatle, visina_skatle, barva_koze) -> list:
-    '''Obdelamo sliko in preštejemo število pikslov kože v vsaki škatli.'''
+    # Seznam za shranjevanje rezultatov
+    seznam_skatel = []
+
+    # Velikost slike
+    visina, sirina, _ = slika.shape
+
+    return seznam_skatel
 
 
 def prestej_piksle_z_barvo_koze(slika, barva_koze) -> int:
