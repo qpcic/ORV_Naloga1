@@ -59,7 +59,14 @@ def prestej_piksle_z_barvo_koze(slika, barva_koze) -> int:
 
 
 def main():
-    pass
+    # Inicializacija kamere
+    cap = cv.VideoCapture(0)  # Poveži kamero
+    if not cap.isOpened():
+        print("Napaka pri odpiranju kamere!")
+        return
+
+    cap.release()
+    cv.destroyAllWindows()
 
 
 if __name__ == '__main__':
