@@ -39,6 +39,13 @@ def doloci_barvo_koze(slika, levo_zgoraj, desno_spodaj) -> tuple:
     '''Izračuna spodnje in zgornje meje barve kože na podlagi izbranega območja.'''
 
 
+def prestej_piksle_z_barvo_koze(slika, barva_koze) -> int:
+    '''Prešteje število pikslov z barvo kože v podsliki.'''
+    spodnja_meja, zgornja_meja = barva_koze
+
+    return barva_koze
+
+
 def main():
     pass
 
