@@ -29,12 +29,6 @@ def obdelaj_sliko_s_skatlami(slika, sirina_skatle, visina_skatle, barva_koze) ->
 
     return seznam_skatel
 
-
-def prestej_piksle_z_barvo_koze(slika, barva_koze) -> int:
-    '''Prestej število pikslov z barvo kože v škatli.'''
-    pass
-
-
 def doloci_barvo_koze(slika, levo_zgoraj, desno_spodaj) -> tuple:
     '''Izračuna spodnje in zgornje meje barve kože na podlagi izbranega območja.'''
 
