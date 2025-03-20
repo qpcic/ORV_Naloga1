@@ -65,6 +65,35 @@ def main():
         print("Napaka pri odpiranju kamere!")
         return
 
+    while True:
+        # Zajem slike
+        ret, frame = cap.read()
+        if not ret:
+            break
+
+        # Pomanjšaj sliko na 260x300 px
+        slika = zmanjsaj_sliko(frame, 260, 300)
+
+        # Izračunamo barvo kože iz prve slike (levo zgoraj in desno spodaj določita območje)
+        if 'barva_koze' not in locals():
+            barva_koze = doloci_barvo_koze(slika, (50, 50), (150, 150))  # Izberite ustrezno območje
+
+        # Obdelaj sliko s škatlami
+        seznam_skatel = obdelaj_sliko_s_skatlami(slika, 30, 30, barva_koze)
+
+        # Izriši škatle (ali označite območja)
+        for y in range(len(seznam_skatel)):
+            for x in range(len(seznam_skatel[y])):
+                if seznam_skatel[y][x] > 0:  # Če je v škatli več kot 0 pikslov kože
+                    cv.rectangle(slika, (x * 30, y * 30), ((x + 1) * 30, (y + 1) * 30), (0, 255, 0), 2)
+
+        # Prikaz slike
+        cv.imshow('Detekcija obraza', slika)
+
+        # Čakanje na pritisnjen 'q' za izhod
+        if cv.waitKey(1) & 0xFF == ord('q'):
+            break
+
     cap.release()
     cv.destroyAllWindows()
 
